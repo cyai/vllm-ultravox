@@ -91,6 +91,7 @@ urllib3==2.2.3
 uvicorn==0.30.6
 uvloop==0.20.0
 vllm==0.6.1.post2
+vllm[audio]
 watchfiles==0.24.0
 websockets==13.0.1
 xxhash==3.5.0
