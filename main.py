@@ -7,8 +7,8 @@ vllm serve fixie-ai/ultravox-v0_3
 import os
 import base64
 import requests
+import time
 from dotenv import load_dotenv
-
 
 from openai import OpenAI
 from vllm.assets.audio import AudioAsset
@@ -47,6 +47,7 @@ def encode_audio_base64_from_url(audio_url: str) -> str:
 
 for i in range(1, 3):
     audio_base64 = encode_audio_base64_from_url(audio_url=audios[i])
+    start_time = time.time()  # Start timing the API call
     if i == 1:
         chat_completion_from_base64 = client.chat.completions.create(
             messages=[
@@ -94,6 +95,10 @@ for i in range(1, 3):
             model=model,
             max_tokens=512,
         )
+
+    end_time = time.time()  # End timing the API call
+    elapsed_time = end_time - start_time  # Calculate the elapsed time
+    print(f"Time taken for API call {i}: {elapsed_time:.2f} seconds")
 
     print("---" * 50)
 
