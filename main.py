@@ -75,19 +75,6 @@ for i in range(1, 3):
                 {
                     "role": "user",
                     "content": [
-                        {"type": "text", "text": "What's in this audio?"},
-                        {
-                            "type": "audio_url",
-                            "audio_url": {
-                                # Any format supported by librosa is supported
-                                "url": f"data:audio/ogg;base64,{audio_base64}"
-                            },
-                        },
-                    ],
-                },
-                {
-                    "role": "user",
-                    "content": [
                         {
                             "type": "text",
                             "text": "How is the person in the previous audio related to the one in this audio?",
