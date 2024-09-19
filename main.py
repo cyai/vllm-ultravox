@@ -48,7 +48,6 @@ def encode_audio_base64_from_url(audio_url: str) -> str:
 for i in range(1, 3):
     audio_base64 = encode_audio_base64_from_url(audio_url=audios[i])
     if i == 1:
-        print(f"Audio 1 base64: {audio_base64}")
         chat_completion_from_base64 = client.chat.completions.create(
             messages=[
                 {
@@ -69,7 +68,6 @@ for i in range(1, 3):
             max_tokens=64,
         )
     else:
-        print(f"Audio 2 base64: {audio_base64}")
         chat_completion_from_base64 = client.chat.completions.create(
             messages=[
                 {
