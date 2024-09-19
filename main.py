@@ -68,24 +68,18 @@ for i in range(1, 3):
             max_tokens=64,
         )
         response_from_1 = chat_completion_from_base64.choices[0].message.content
+        question_1 = "what is the audio about?"
     else:
         chat_completion_from_base64 = client.chat.completions.create(
             messages=[
-                {
-                    "role": "assistant",
-                    "content": [
-                        {
-                            "type": "text",
-                            "text": response_from_1,
-                        },
-                    ],
-                },
                 {
                     "role": "user",
                     "content": [
                         {
                             "type": "text",
-                            "text": "How is the previous person related to the one in this audio?",
+                            "text": f"There was a audio sent to you previously in a different chat and was asked: {question_1} and you replied with: {response_from_1}.
+                             Now based on this history answer the following:
+                             How is the previous person related to the one in this audio?",
                         },
                         {
                             "type": "audio_url",
