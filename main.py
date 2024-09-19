@@ -67,9 +67,29 @@ for i in range(1, 3):
             model=model,
             max_tokens=64,
         )
+        response_from_1 = chat_completion_from_base64.choices[0].message.content
     else:
         chat_completion_from_base64 = client.chat.completions.create(
             messages=[
+                {
+                    "role": "user",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "What's in this audio?",
+                            "text": "Some audio",
+                        },
+                    ],
+                },
+                {
+                    "role": "assistant",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": response_from_1,
+                        },
+                    ],
+                },
                 {
                     "role": "user",
                     "content": [
