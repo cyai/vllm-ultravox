@@ -77,9 +77,9 @@ for i in range(1, 3):
                     "content": [
                         {
                             "type": "text",
-                            "text": f'''There was a audio sent to you previously in a different chat and was asked: {question_1} and you replied with: {response_from_1}.
+                            "text": f"""There was a audio sent to you previously in a different chat and was asked: {question_1} and you replied with: {response_from_1}.
                              Now based on this history answer the following:
-                             How is the previous person related to the one in this audio?''',
+                             How is the previous person related to the one in this audio?""",
                         },
                         {
                             "type": "audio_url",
@@ -92,8 +92,10 @@ for i in range(1, 3):
                 },
             ],
             model=model,
-            max_tokens=64,
+            max_tokens=512,
         )
+
+    print("---" * 50)
 
     result = chat_completion_from_base64.choices[0].message.content
     print(f"Chat completion output:{result}")
