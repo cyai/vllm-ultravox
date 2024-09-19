@@ -72,16 +72,6 @@ for i in range(1, 3):
         chat_completion_from_base64 = client.chat.completions.create(
             messages=[
                 {
-                    "role": "user",
-                    "content": [
-                        {
-                            "type": "text",
-                            "text": "What's in this audio?",
-                            "text": "Some audio",
-                        },
-                    ],
-                },
-                {
                     "role": "assistant",
                     "content": [
                         {
@@ -95,7 +85,7 @@ for i in range(1, 3):
                     "content": [
                         {
                             "type": "text",
-                            "text": "How is the person in the previous audio related to the one in this audio?",
+                            "text": "How is the previous person related to the one in this audio?",
                         },
                         {
                             "type": "audio_url",
